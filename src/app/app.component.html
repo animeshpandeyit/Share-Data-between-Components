@@ -1,5 +1,5 @@
-<h1>{{ forParent }}</h1>
+<h1>{{forParent}}</h1>
 
-<!-- ab jab hume yaha child componet ka data pass karna hai  tab hum yaha child ka decorator use karenge -->
-
-<app-child [inputFromParent]="forChild"></app-child>
+<!-- <app-child [inputfromParent]="forChild"></app-child> -->
+<app-child (updatename)="getName($event)"></app-child>
+<button (click)="buttonClick()">buttonClick</button>

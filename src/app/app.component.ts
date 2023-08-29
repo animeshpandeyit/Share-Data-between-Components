@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { ChildComponent } from './child/child.component';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Share-Data-between-Components';
 
-  // kyuki hume parent aur child ke liye alag alag data chaiye iske liye hum 2 variable banayenge...
+  forParent: string = 'Parent to Parent';
+  forChild: string = 'Parent to Child';
 
-  forParent: string = 'ye parent component ke liye hai....';
+  getName(name: string) {
+    this.forParent = name;
+  }
 
-  forChild: string =
-    'ye child component ke liye hai..... parent component se aaya hua  data';
+  @ViewChild(ChildComponent) child:any ;
+
+  buttonClick(){
+    this.forParent = this.child.name;
+  }
 }
